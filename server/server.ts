@@ -3,10 +3,10 @@ import mongoose from "mongoose";
 
 const app = express();
 
-const userDB: string = "mongodb://localhost:27017/userDB";
+const clothxDB: string = "mongodb://localhost:27017/clothxDB";
 
 mongoose
-  .connect(userDB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(clothxDB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(_ => console.log("Connected to DB"))
   .catch(error => console.error("ERROR", error));
 
