@@ -1,6 +1,5 @@
-
 const Banner = () => {
-    return 'banner'
-}
+  return "banner";
+};
 
 export default Banner;

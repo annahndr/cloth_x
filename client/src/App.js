@@ -1,22 +1,18 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import './styles/base/base.scss';
-import Header from './components/header/Header';
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Cart from "./pages/Cart";
+import "./styles/base/base.scss";
+import Header from "./components/header/Header";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import Cart from "./pages/cart/Cart";
 
 function App() {
   return (
     <Router>
-    <div className="App">
-      <Header/>
+      <main className="App">
+        <Header />
 
-      <Switch>
+        <Switch>
           <Route path="/login">
             <Login />
           </Route>
@@ -27,7 +23,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
-    </div>
+      </main>
     </Router>
   );
 }

@@ -1,6 +1,5 @@
-
 const Card = () => {
-    return 'card'
-}
+  return "card";
+};
 
 export default Card;
