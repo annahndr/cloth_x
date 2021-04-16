@@ -9,6 +9,11 @@ import Header from './components/header/Header';
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
+import Footer from "./components/footer/Footer";
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+library.add(fab);
 
 function App() {
   return (
@@ -27,6 +32,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
+        <Footer />
     </div>
     </Router>
   );
