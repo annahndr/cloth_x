@@ -1,9 +1,9 @@
-import express from "express";
-import mongoose from "mongoose";
+const express = require("express");
+const mongoose = require("mongoose");
 
 const app = express();
 
-const clothxDB: string = "mongodb://localhost:27017/clothxDB";
+const clothxDB = "mongodb://localhost:27017/clothxDB";
 
 mongoose
   .connect(clothxDB, { useNewUrlParser: true, useUnifiedTopology: true })

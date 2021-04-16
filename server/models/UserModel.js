@@ -1,7 +1,7 @@
-import mongoose, {Schema, Document} from "mongoose";
+import mongoose from "mongoose";
 import {ObjectId} from "bson";
 
-const User: Schema = new Schema({
+const User = mongoose.model('User', {
     id: {type: ObjectId, required: true},
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
@@ -11,15 +11,6 @@ const User: Schema = new Schema({
     verified: {type: Boolean, required: true}
 });
 
-export interface IUser extends Document {
-    firstName: String,
-    lastName: String,
-    email: String,
-    password: String,
-    created: number,
-    verified: Boolean
-}
-
-export default mongoose.model<IUser>("User", User);
+module.export = mongoose.model('User', User);
 
 // ^^The first argument is the singular name of the collection your model is for. Mongoose automatically looks for the plural, lowercased version of your model name.
