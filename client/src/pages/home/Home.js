@@ -1,4 +1,6 @@
 import "./home.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRecycle, faCloud, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 const Home = () => {
   return (
@@ -23,23 +25,26 @@ const Home = () => {
         <p className="home-features__heading">Wait, what is it?</p>
         <ul className="home-features__items">
           <li>
-            <span>
+            <span className="home-features__items-large">
+            <FontAwesomeIcon icon={faRecycle} className="icon" />
               <p>Our Mission</p>
             </span>
           </li>
           <li>
-            <span>
+            <span className="home-features__items-large">
+            <FontAwesomeIcon icon={faCloud} className="icon" />
               <p>How It Works</p>
             </span>
           </li>
           <li>
-            <span>
+            <span className="home-features__items-large">
+            <FontAwesomeIcon icon={faShoppingCart} className="icon" />
               <p>Start Shopping</p>
             </span>
           </li>
         </ul>
       </div>
-      <div className="home-info row row--centered">
+      <div className="home-info row row--centered hide-mobile">
         <div className="home-info__text col col--centered">
           <h2>Our Mission</h2>
           <p>
@@ -57,22 +62,23 @@ const Home = () => {
         <p className="home-features__heading">How It Works</p>
         <ul className="home-features__items">
           <li>
-            <span>
+            <span className="home-features__container home-features__items-large">
               <p>Create an account</p>
-            </span>
             <span className="home-features__items-small">1</span>
+            </span>
           </li>
           <li>
-            <span>
+            <span className="home-features__container home-features__items-large">
               <p>Either upload your clothes or shop for new ones</p>
-            </span>
             <span className="home-features__items-small">2</span>
+            </span>
           </li>
           <li>
-            <span>
+            <span className="home-features__container home-features__items-large">
               <p>Start Shopping</p>
+              <span className="home-features__items-small">3</span>
             </span>
-            <span className="home-features__items-small">3</span>
+            
           </li>
         </ul>
       </div>

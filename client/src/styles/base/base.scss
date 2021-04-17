@@ -18,3 +18,10 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.hide-mobile {
+  display: none;
+  @media (min-width: 767px) {
+    display: block;
+  }
+}
