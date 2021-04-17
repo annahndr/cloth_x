@@ -1,22 +1,21 @@
 const express = require("express");
-const mongoose = require("mongoose");
-
 const app = express();
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const MongoClient = require("mongodb").MongoClient;
+const createRouter = require("./helpers/createRouter");
 
-const clothxDB = "mongodb://localhost:27017/clothxDB";
+app.use(cors());
+app.use(bodyParser.json());
 
-mongoose
-  .connect(clothxDB, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(_ => console.log("Connected to DB"))
-  .catch(error => console.error("ERROR", error));
-
-const PORT = 8080;
-
-app.use(express.json());
-app.get("/", (request, response) =>
-  response.send("Express + TypeScript Server")
-);
-
-app.listen(PORT, () => {
-  console.log(`[server]: Server is running at https://localhost:${PORT}`);
+MongoClient.connect("mongodb://localhost:27017")
+  .then(client => {
+    const db = client.db("clothxDB");
+    const usersCollection = db.collection("users");
+    const usersRouter = createRouter(usersCollection);
+    app.use("/api/users", usersRouter);
+  })
+  .catch(console.error);
+app.listen(5000, function() {
+  console.log(`clothX server running on port ${this.address().port}`);
 });

@@ -11,7 +11,7 @@
 // })
 // lizzie.save().then(console.log("lizzie has been saved"));
 
-use clothX;
+use clothxDB;
 
 db.dropDatabase();
 
