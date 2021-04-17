@@ -5,6 +5,7 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Cart from "./pages/cart/Cart";
 import Footer from "./components/footer/Footer";
+import SearchResults from "./pages/searchResults/SearchResults";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -17,6 +18,9 @@ function App() {
         <Header />
 
         <Switch>
+          <Route path="/search-results">
+            <SearchResults />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>
@@ -26,6 +30,7 @@ function App() {
           <Route path="/">
             <Home />
           </Route>
+         
         </Switch>
 
         <Footer />
