@@ -13,24 +13,24 @@ const Home = () => {
     {
       name: "Chunky Sweater",
       description: "This is a sweater",
-      tags: ["Adult", "Used"],
-      price: "10",
+      size: "M",
+      category: "Used",
       image: Sweater,
       location: "Glasgow",
     },
     {
       name: "Chunky Sweater",
       description: "This is a sweater",
-      tags: ["Adult", "Used"],
-      price: "10",
+      size: "M",
+      category: "Used",
       image: Sweater,
       location: "Glasgow",
     },
     {
       name: "Chunky Sweater",
       description: "This is a sweater",
-      tags: ["Adult", "Used"],
-      price: "10",
+      size: "M",
+      category: "Used",
       image: Sweater,
       location: "Glasgow",
     },
@@ -116,8 +116,10 @@ const Home = () => {
       </section>
       <section className="home-container home-popular">
         <div className="row">
-            <div className="col-12"><h2>Shop Now</h2></div>
-            {featureProducts(products)}
+          <div className="col-12">
+            <h2>Shop Now</h2>
+          </div>
+          {featureProducts(products)}
         </div>
       </section>
     </div>
@@ -127,15 +129,15 @@ const Home = () => {
 const featureProducts = (products) => {
   return products.map((product, i) => {
     return (
-        <ProductCard
-            key={i}
-            name={product.name}
-            description={product.description}
-            tags={product.tags}
-            price={product.price}
-            image={product.image}
-            location={product.location}
-        />
+      <ProductCard
+        key={i}
+        name={product.name}
+        description={product.description}
+        category={product.category}
+        price={product.price}
+        image={product.image}
+        location={product.location}
+      />
     );
   });
 };
