@@ -1,0 +1,23 @@
+.container {
+  padding: 1rem;
+}
+
+.row {
+  display: flex;
+}
+
+.row--centred {
+  align-items: center;
+  justify-content: center;
+}
+
+.col {
+  flex: 1;
+  padding: 1rem;
+  flex-direction: column;
+}
+
+.col--centered {
+  align-items: center;
+  justify-content: center;
+}

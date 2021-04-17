@@ -1,0 +1,39 @@
+@import "../../styles/base/variables.scss";
+@import "../../styles/base/buttons.scss";
+
+.footer {
+  background-color: $grey;
+  padding: 1rem 1rem 0 1rem;
+  font-size: 0.75rem;
+  width: 100%;
+
+  @media (min-width: 767px) {
+    padding: 2rem 2rem 0 2rem;
+  }
+}
+
+a {
+  color: black;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+
+  @media (min-width: 767px) {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.footer-bottom_hidden {
+  visibility: hidden;
+}
+
+.footer-bottom_contact .icon {
+  margin: 0 5px;
+  font-size: 1rem;
+}
