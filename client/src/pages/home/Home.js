@@ -1,6 +1,7 @@
 import "./home.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRecycle, faCloud, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import ProductCard from "../../components/productCard/ProductCard";
 
 const Home = () => {
   return (
@@ -78,10 +79,19 @@ const Home = () => {
               <p>Start Shopping</p>
               <span className="home-features__items-small">3</span>
             </span>
-            
           </li>
         </ul>
       </div>
+    <div className="home-popular">
+        <ProductCard 
+            name="Chunky Sweater" 
+            description="This is a sweater" 
+            tags={['Adult', 'Used']}
+            price="10"
+            image=""
+            location="Glasgow"
+        />
+    </div>
     </div>
   );
 };
