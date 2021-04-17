@@ -21,20 +21,20 @@ const createRouter = function(collection) {
   router.post("/", (req, res) => {
     const newData = req.body;
     collection
-      .insertOne(newData)
-      .then(result => {
-        console.log(result);
-        res.json(result.ops[0]);
-        res.status(500);
-      })
-      .catch(err => {
-        console.error(err);
-        res.status(500);
-        res.json({ status: 500, error: err });
-      });
-  });
+    .insertOne(newData)
+    .then(result => {
+      console.log(result);
+      res.json(result.ops[0]);
+      res.status(500);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500);
+      res.json({ status: 500, error: err });
+    });
+  })
 
-  // USERS
+  // POST a user
   router.post("/register", async (req, res) => {
     const newUser = req.body;
     const saltRounds = 10;
@@ -42,6 +42,7 @@ const createRouter = function(collection) {
     if (!foundUser) {
       bcrypt.hash(newUser.password, saltRounds, function(err, hash) {
         newUser.password = hash;
+        newUser.created = Date.now();
         collection
           .insertOne(newUser)
           .then(result => {
@@ -66,7 +67,7 @@ const createRouter = function(collection) {
     const foundUser = await collection.findOne({ email: user.email });
 
     if (foundUser) {
-      const validPassword = bcrypt.compare(user.password, foundUser.password);
+      const validPassword = await bcrypt.compare(user.password, foundUser.password);
 
       if (validPassword) {
         res.status(200).json({ message: "Valid Password", status: 200 });
@@ -81,16 +82,18 @@ const createRouter = function(collection) {
 
   // GET all products by user id
   router.get("/user/:id", (req, res) => {
-    const id = req.params.id; //id is the userId in the products collection
+    const id = ObjectId(req.params.id); //id is the userId in the products collection
     console.log("id:", id);
-    collection
-      .find({ userId: id })
+    
+   const products =  collection.find({ userId: id })
+   console.log("products:", products);
+   products
       .toArray()
       .then(docs => res.json(docs))
-      .catch(errorResponse => {
-        error.log(errorResponse);
+      .catch(error => {
+        console.error(error);
         res.status(500);
-        res.json({ status: 500, error: errorResponse });
+        res.json({ status: 500, error: error });
       });
   });
 
@@ -100,24 +103,6 @@ const createRouter = function(collection) {
     collection
       .findOne({ _id: id })
       .then(docs => res.json(docs))
-      .catch(error => {
-        console.error(error);
-        res.status(500);
-        res.json({ status: 500, error: error });
-      });
-  });
-
-  //TO DO CREATE AN EDIT ENDPOINT
-  router.put("/:id", (req, res) => {
-    const id = ObjectId(req.params.id);
-    const updatedData = req.body;
-    collection
-      .findOneAndUpdate(
-        { _id: id },
-        { $set: updatedData },
-        { returnOriginal: false }
-      )
-      .then(result => res.json(result.value))
       .catch(error => {
         console.error(error);
         res.status(500);
