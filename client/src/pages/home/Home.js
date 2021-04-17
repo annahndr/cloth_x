@@ -103,12 +103,10 @@ const Home = () => {
         <div className="home-info__text col col--centered">
           <h2>Our Mission</h2>
           <p>
-            Macchiato single shot french press cream arabica beans fair trade eu
-            whipped. Crema lungo rich a, macchiato, strong fair trade,
-            aftertaste et plunger pot filter strong. Steamed, single origin,
-            filter, french press milk aftertaste americano, barista cappuccino
-            organic breve flavour. Single shot, cortado, mocha macchiato redeye,
-            variety irish and eu java.
+          Our mission is to help regular people reduce their impact on the environment and to reduce the
+          stigma attached to ‘hand me down’ clothes. We aim to introduce people to the circular economy so
+          together we can help: protect the environment, reduce waste, and increase the efficient use of
+          textiles.
           </p>
         </div>
         <div className="home-info__text col col--centered">test</div>
