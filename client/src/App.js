@@ -13,7 +13,6 @@ library.add(fab);
 function App() {
   return (
     <Router>
-      <main className="App">
         <Header />
 
         <Switch>
@@ -29,7 +28,6 @@ function App() {
         </Switch>
 
         <Footer />
-      </main>
     </Router>
   );
 }
