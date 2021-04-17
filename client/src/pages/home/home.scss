@@ -22,7 +22,7 @@
   flex-direction: column;
   min-height: 550px;
   text-align: center;
-  padding: 2rem;
+  padding: 3rem 2rem;
 }
 
 .home-features__heading {
@@ -121,8 +121,9 @@
 
 .home-info {
   display: none;
+  padding: 10%;
 
-  @media (min-width: 767px) {
+  @media (min-width: 900px) {
     display: flex;
   }
 }
