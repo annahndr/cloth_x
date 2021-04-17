@@ -19,17 +19,27 @@
 }
 
 .order-form {
-    width: 80%;
+    width: 90%;
 }
 
 .place-order_input {
     display: flex;
     flex-direction: column;
     margin: 1rem;
-    width: 100%;
+    width: 90%;
     padding: 1rem;
     border-radius: 8px;
     color: $grey;
     border: 2px solid $black;
     font-family: Arial;
+}
+
+.place-order_submit {
+    float: right;
+    background-color: $teal;
+    color: $white;
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    margin-right: 3rem;
 }
