@@ -18,9 +18,9 @@ const ProductCard = (props) => {
   };
 
   return (
-    <div className="col-12 col-md-4">
+    <div className="col-12 col-lg-4 product-card-container">
       <div className="product-card">
-        <div className="col-2">
+        <div className="row col-2">
           <span className="product-card__location badge text-dark">
             {location}
           </span>
@@ -30,18 +30,18 @@ const ProductCard = (props) => {
           <div className="product_card__image" style={img}></div>
         </div>
 
-        <div className="d-flex justify-content-between">
-          <div className="col-6 product_card__details-text">
+        <div className="row d-flex justify-content-between">
+          <div className="col-8 col-lg-6 product_card__details-text">
             <strong>{name}</strong>
             <p>{description}</p>
           </div>
-          <div className="col-6">
+          <div className="col-4 col-lg-6">
             <div className="col-12 d-flex justify-content-end">
               {renderTags()}
             </div>
           </div>
         </div>
-        <div className="col-12 product_card__action d-flex">
+        <div className="row col-12 product_card__action d-flex">
           <button
             type="button"
             className="btn btn-primary btn-primary--teal"

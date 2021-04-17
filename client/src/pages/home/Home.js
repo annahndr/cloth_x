@@ -115,7 +115,10 @@ const Home = () => {
         </ul>
       </section>
       <section className="home-container home-popular">
-        <div className="row">{featureProducts(products)}</div>
+        <div className="row">
+            <div className="col-12"><h2>Shop Now</h2></div>
+            {featureProducts(products)}
+        </div>
       </section>
     </div>
   );

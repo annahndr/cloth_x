@@ -1,5 +1,9 @@
 @import "../../styles/base/variables.scss";
 
+.product-card-container {
+  margin: 1rem 0;
+}
+
 .product-card {
   display: flex;
   flex-direction: column;
