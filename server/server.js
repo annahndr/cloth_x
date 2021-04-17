@@ -8,7 +8,7 @@ const createRouter = require("./helpers/createRouter");
 app.use(cors());
 app.use(bodyParser.json());
 
-MongoClient.connect("mongodb://localhost:27017")
+MongoClient.connect("mongodb://localhost:27017", { useUnifiedTopology: true })
   .then(client => {
     const db = client.db("clothxDB");
 

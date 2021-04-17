@@ -79,6 +79,24 @@ const createRouter = function(collection) {
     }
   });
 
+  // GET all products by user id
+  router.get("/user/:id", async (req, res) => {
+    const id = ObjectId(req.params.id); //id is the userId in the products collection
+    console.log("id:", id);
+    
+   const products = await collection.find({ "userId": id })
+   console.log("products:", products);
+   products
+      .toArray()
+      .then(docs => res.json(docs))
+      .catch(error => {
+        console.error(error);
+        res.status(500);
+        res.json({ status: 500, error: error });
+      });
+  });
+
+  // USERS, PRODUCTS
   router.get("/:id", (req, res) => {
     const id = ObjectId(req.params.id);
     collection
