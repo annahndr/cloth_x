@@ -1,35 +1,40 @@
 import "./home.scss";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRecycle, faCloud, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faRecycle,
+  faCloud,
+  faShoppingCart,
+} from "@fortawesome/free-solid-svg-icons";
 import ProductCard from "../../components/productCard/ProductCard";
 import Sweater from "../../assets/images/icecreamgreysweatersite.png";
 
 const Home = () => {
-
-    const products = [{
-        name: "Chunky Sweater",
-        description: "This is a sweater",
-        tags: ['Adult', 'Used'],
-        price: "10",
-        image: Sweater,
-        location: "Glasgow"
+  const products = [
+    {
+      name: "Chunky Sweater",
+      description: "This is a sweater",
+      tags: ["Adult", "Used"],
+      price: "10",
+      image: Sweater,
+      location: "Glasgow",
     },
     {
-        name: "Chunky Sweater",
-        description: "This is a sweater",
-        tags: ['Adult', 'Used'],
-        price: "10",
-        image: Sweater,
-        location: "Glasgow"
+      name: "Chunky Sweater",
+      description: "This is a sweater",
+      tags: ["Adult", "Used"],
+      price: "10",
+      image: Sweater,
+      location: "Glasgow",
     },
     {
-        name: "Chunky Sweater",
-        description: "This is a sweater",
-        tags: ['Adult', 'Used'],
-        price: "10",
-        image: Sweater,
-        location: "Glasgow"
-    }];
+      name: "Chunky Sweater",
+      description: "This is a sweater",
+      tags: ["Adult", "Used"],
+      price: "10",
+      image: Sweater,
+      location: "Glasgow",
+    },
+  ];
 
   return (
     <div>
@@ -54,19 +59,19 @@ const Home = () => {
         <ul className="home-features__items">
           <li>
             <span className="home-features__items-large">
-            <FontAwesomeIcon icon={faRecycle} className="icon" />
+              <FontAwesomeIcon icon={faRecycle} className="icon" />
               <p>Our Mission</p>
             </span>
           </li>
           <li>
             <span className="home-features__items-large">
-            <FontAwesomeIcon icon={faCloud} className="icon" />
+              <FontAwesomeIcon icon={faCloud} className="icon" />
               <p>How It Works</p>
             </span>
           </li>
           <li>
             <span className="home-features__items-large">
-            <FontAwesomeIcon icon={faShoppingCart} className="icon" />
+              <FontAwesomeIcon icon={faShoppingCart} className="icon" />
               <p>Start Shopping</p>
             </span>
           </li>
@@ -92,13 +97,13 @@ const Home = () => {
           <li>
             <span className="home-features__container home-features__items-large">
               <p>Create an account</p>
-            <span className="home-features__items-small">1</span>
+              <span className="home-features__items-small">1</span>
             </span>
           </li>
           <li>
             <span className="home-features__container home-features__items-large">
               <p>Either upload your clothes or shop for new ones</p>
-            <span className="home-features__items-small">2</span>
+              <span className="home-features__items-small">2</span>
             </span>
           </li>
           <li>
@@ -110,28 +115,26 @@ const Home = () => {
         </ul>
       </section>
       <section className="home-container home-popular">
-            <div className="row">
-                {featureProducts(products)}
-            </div>
-        </section>  
+        <div className="row">{featureProducts(products)}</div>
+      </section>
     </div>
   );
 };
 
-
 const featureProducts = (products) => {
-        return products.map((product, i) => {
-            return <ProductCard 
+  return products.map((product, i) => {
+    return (
+        <ProductCard
             key={i}
             name={product.name}
-            description={product.description} 
+            description={product.description}
             tags={product.tags}
             price={product.price}
             image={product.image}
             location={product.location}
         />
-        })
-}
-
+    );
+  });
+};
 
 export default Home;
