@@ -11,9 +11,15 @@ app.use(bodyParser.json());
 MongoClient.connect("mongodb://localhost:27017")
   .then(client => {
     const db = client.db("clothxDB");
+
     const usersCollection = db.collection("users");
     const usersRouter = createRouter(usersCollection);
     app.use("/api/users", usersRouter);
+
+    const productsCollection = db.collection("products");
+    const productsRouter = createRouter(productsCollection);
+    app.use("/api/products", productsRouter);
+
   })
   .catch(console.error);
 app.listen(5000, function() {
