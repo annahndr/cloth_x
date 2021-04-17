@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import "./productCard.scss";
 
+import Sweater from "../../assets/images/icecreamgreysweatersite.png";
+
 const ProductCard = (props) => {
-  const { id, name, description, category, image, location } = props;
+  const { id, title, description, category, image, location } = props;
 
   const img = {
-    backgroundImage: `url(${image})`,
+    backgroundImage: `url(${Sweater})`,
   };
 
   return (
@@ -23,7 +25,7 @@ const ProductCard = (props) => {
 
         <div className="row d-flex justify-content-between">
           <div className="col-8 col-lg-6 product_card__details-text">
-            <strong>{name}</strong>
+            <strong>{title}</strong>
             <p>{description}</p>
           </div>
           <div className="col-4 col-lg-6">
