@@ -62,7 +62,15 @@ const createRouter = function(collection) {
   });
 
   router.get("/:id", (req, res) => {
-    const id = req.params.id;
+    const id = ObjectId(req.params.id);
+    collection
+      .findOne({ _id: id })
+      .then(docs => res.json(docs))
+      .catch(error => {
+        console.error(error);
+        res.status(500);
+        res.json({ status: 500, error: error });
+      });
   });
 
   return router;
