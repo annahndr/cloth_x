@@ -34,7 +34,29 @@ const createRouter = function(collection) {
       res.json({ status: 500, error: err });
     });
   });
-});
+  });
+
+  router.post("/login", async (req, res) => {
+    const user = req.body;
+    console.log("user:", user);
+
+    const foundUser = await collection.findOne({email: user.email})
+    console.log("found user:", foundUser);
+
+    if (foundUser){
+      const validPassword = bcrypt.compare(user.password, foundUser.password)
+
+      if(validPassword){
+        res.status(200).json({message:"Valid Password", status: 200})
+      }
+      else { 
+        res.status(400).json({error: "Invalid password", status: 400})
+      }
+    // if user not found:
+    } else {
+      res.status(401).json({error: "User does not exist", status:401})
+    }
+  })
 
   return router;
 };
