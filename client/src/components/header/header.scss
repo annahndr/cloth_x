@@ -1,0 +1,20 @@
+@import "../../styles/base/variables.scss";
+
+.header {
+  background-color: $teal;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+
+  a {
+    &:nth-child(1) {
+      margin: 0 1rem;
+    }
+  }
+}

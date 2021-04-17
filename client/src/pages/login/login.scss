@@ -1,0 +1,45 @@
+@import "../../styles/base/variables.scss";
+@import "../../styles/base/buttons.scss";
+
+.login {
+    display: flex;
+}
+
+.login-register, .login-existing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-direction: column;
+    padding: 5rem;
+}
+
+.login-register {
+    background-color: $greylight;
+}
+
+.login-form {
+    width: 80%;
+}
+
+.label-stacked {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.login-input {
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.login-submit {
+    float: right;
+    background-color: $teal;
+    color: $white;
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    margin-right: 1rem;
+}
+

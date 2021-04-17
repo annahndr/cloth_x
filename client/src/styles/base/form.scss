@@ -1,0 +1,12 @@
+.input-search {
+  border: solid 2px $black;
+  border-radius: 20px;
+  padding: 0.5rem;
+  width: 200px;
+  margin: 0 1rem;
+
+  @media (min-width: 900px) {
+    padding: 0.9rem;
+    width: 400px;
+  }
+}

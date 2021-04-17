@@ -1,0 +1,29 @@
+@import "../base/variables.scss";
+@import "../base/typography.scss";
+@import "../base/buttons.scss";
+@import "../base/form.scss";
+@import "../base/grid.scss";
+
+@import "~bootstrap/scss/bootstrap.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 16px;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.hide-mobile {
+  display: none;
+  @media (min-width: 767px) {
+    display: block;
+  }
+}

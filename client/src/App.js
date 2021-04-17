@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./styles/base/base.scss";
+import Header from "./components/header/Header";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import Cart from "./pages/cart/Cart";
+import Footer from "./components/footer/Footer";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+library.add(fab);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <main className="App">
+        <Header />
+
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/cart">
+            <Cart />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+
+        <Footer />
+      </main>
+    </Router>
   );
 }
 
