@@ -20,6 +20,10 @@ MongoClient.connect("mongodb://localhost:27017", { useUnifiedTopology: true })
     const productsRouter = createRouter(productsCollection);
     app.use("/api/products", productsRouter);
 
+    const shoppingCartsCollection = db.collection("shoppingCarts");
+    const shoppingCartsRouter = createRouter(shoppingCartsCollection);
+    app.use("/api/shoppingCarts", shoppingCartsRouter);
+
   })
   .catch(console.error);
 app.listen(5000, function() {
