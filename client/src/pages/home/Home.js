@@ -11,6 +11,7 @@ import Sweater from "../../assets/images/icecreamgreysweatersite.png";
 const Home = () => {
   const products = [
     {
+      id: 1,
       name: "Chunky Sweater",
       description: "This is a sweater",
       size: "M",
@@ -19,6 +20,7 @@ const Home = () => {
       location: "Glasgow",
     },
     {
+      id: 2,
       name: "Chunky Sweater",
       description: "This is a sweater",
       size: "M",
@@ -27,6 +29,7 @@ const Home = () => {
       location: "Glasgow",
     },
     {
+      id: 3,
       name: "Chunky Sweater",
       description: "This is a sweater",
       size: "M",
@@ -131,6 +134,7 @@ const featureProducts = (products) => {
     return (
       <ProductCard
         key={i}
+        id={product.id}
         name={product.name}
         description={product.description}
         category={product.category}

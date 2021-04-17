@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import "./productCard.scss";
 
 const ProductCard = (props) => {
-  const { name, description, category, image, location } = props;
+  const { id, name, description, category, image, location } = props;
 
   const img = {
     backgroundImage: `url(${image})`,
@@ -27,19 +28,17 @@ const ProductCard = (props) => {
           </div>
           <div className="col-4 col-lg-6">
             <div className="col-12 d-flex justify-content-end">
-              <span
-                className="product_card__details-tags badge text-dark"
-              >
+              <span className="product_card__details-tags badge text-dark">
                 {category}
               </span>
             </div>
           </div>
         </div>
         <div className="row col-12 product_card__action d-flex">
-          <button
-            type="button"
+          <Link
+            to={`/product/${id}`}
             className="btn btn-primary btn-primary--teal"
-          >{`Get Now`}</button>
+          >{`Get Now`}</Link>
         </div>
       </div>
     </div>
