@@ -121,13 +121,12 @@
 
 .home-info {
   display: none;
-  padding: 10%;
 
   @media (min-width: 900px) {
     display: flex;
   }
 }
 
-.home-info__text {
-  padding: 5rem;
+.home-container {
+  padding: 10%;
 }

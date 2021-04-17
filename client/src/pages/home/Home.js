@@ -2,11 +2,38 @@ import "./home.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRecycle, faCloud, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import ProductCard from "../../components/productCard/ProductCard";
+import Sweater from "../../assets/images/icecreamgreysweatersite.png";
 
 const Home = () => {
+
+    const products = [{
+        name: "Chunky Sweater",
+        description: "This is a sweater",
+        tags: ['Adult', 'Used'],
+        price: "10",
+        image: Sweater,
+        location: "Glasgow"
+    },
+    {
+        name: "Chunky Sweater",
+        description: "This is a sweater",
+        tags: ['Adult', 'Used'],
+        price: "10",
+        image: Sweater,
+        location: "Glasgow"
+    },
+    {
+        name: "Chunky Sweater",
+        description: "This is a sweater",
+        tags: ['Adult', 'Used'],
+        price: "10",
+        image: Sweater,
+        location: "Glasgow"
+    }];
+
   return (
     <div>
-      <div className="home-banner">
+      <section className="home-banner">
         <h2 className="heading-light home-banner__heading">
           Do your bit with <strong>ClothX.</strong>
         </h2>
@@ -21,8 +48,8 @@ const Home = () => {
             aria-label="Search through site content"
           />
         </label>
-      </div>
-      <div className="home-features">
+      </section>
+      <section className="home-container home-features">
         <p className="home-features__heading">Wait, what is it?</p>
         <ul className="home-features__items">
           <li>
@@ -44,8 +71,8 @@ const Home = () => {
             </span>
           </li>
         </ul>
-      </div>
-      <div className="home-info row row--centered hide-mobile">
+      </section>
+      <section className="home-container home-info">
         <div className="home-info__text col col--centered">
           <h2>Our Mission</h2>
           <p>
@@ -58,8 +85,8 @@ const Home = () => {
           </p>
         </div>
         <div className="home-info__text col col--centered">test</div>
-      </div>
-      <div className="home-features home-features--numbered">
+      </section>
+      <section className="home-container home-features home-features--numbered">
         <p className="home-features__heading">How It Works</p>
         <ul className="home-features__items">
           <li>
@@ -81,19 +108,30 @@ const Home = () => {
             </span>
           </li>
         </ul>
-      </div>
-    <div className="home-popular">
-        <ProductCard 
-            name="Chunky Sweater" 
-            description="This is a sweater" 
-            tags={['Adult', 'Used']}
-            price="10"
-            image=""
-            location="Glasgow"
-        />
-    </div>
+      </section>
+      <section className="home-container home-popular">
+            <div className="row">
+                {featureProducts(products)}
+            </div>
+        </section>  
     </div>
   );
 };
+
+
+const featureProducts = (products) => {
+        return products.map((product, i) => {
+            return <ProductCard 
+            key={i}
+            name={product.name}
+            description={product.description} 
+            tags={product.tags}
+            price={product.price}
+            image={product.image}
+            location={product.location}
+        />
+        })
+}
+
 
 export default Home;

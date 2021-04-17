@@ -4,4 +4,22 @@
   display: flex;
   flex-direction: column;
   border: solid 1px $greylight;
+  padding: 1rem;
+}
+
+.product-card__location {
+  background-color: $greylight;
+}
+
+.product_card__details-tags {
+  border: solid 2px $teal;
+  margin: 0.5rem;
+}
+
+.product_card__image {
+  width: 100%;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
 }
