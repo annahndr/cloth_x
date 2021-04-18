@@ -8,28 +8,32 @@ import Footer from "./components/footer/Footer";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import CreatePost from "./pages/post/CreatePost";
+import Product from "./pages/product/Product";
 library.add(fab);
 
 function App() {
   return (
     <Router>
-      <main className="App">
-        <Header />
-
-        <Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-
-        <Footer />
-      </main>
+      <Header />
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/cart">
+          <Cart />
+        </Route>
+        <Route path="/create-post">
+          <CreatePost />
+        </Route>
+        <Route path="/product/:id">
+          <Product />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+      <Footer />
     </Router>
   );
 }

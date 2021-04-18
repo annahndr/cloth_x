@@ -6,35 +6,17 @@ import {
   faShoppingCart,
 } from "@fortawesome/free-solid-svg-icons";
 import ProductCard from "../../components/productCard/ProductCard";
-import Sweater from "../../assets/images/icecreamgreysweatersite.png";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts, productSelector } from "../../store/product-reducer";
 
 const Home = () => {
-  const products = [
-    {
-      name: "Chunky Sweater",
-      description: "This is a sweater",
-      tags: ["Adult", "Used"],
-      price: "10",
-      image: Sweater,
-      location: "Glasgow",
-    },
-    {
-      name: "Chunky Sweater",
-      description: "This is a sweater",
-      tags: ["Adult", "Used"],
-      price: "10",
-      image: Sweater,
-      location: "Glasgow",
-    },
-    {
-      name: "Chunky Sweater",
-      description: "This is a sweater",
-      tags: ["Adult", "Used"],
-      price: "10",
-      image: Sweater,
-      location: "Glasgow",
-    },
-  ];
+  const dispatch = useDispatch();
+  const { products } = useSelector(productSelector);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
     <div>
@@ -81,12 +63,11 @@ const Home = () => {
         <div className="home-info__text col col--centered">
           <h2>Our Mission</h2>
           <p>
-            Macchiato single shot french press cream arabica beans fair trade eu
-            whipped. Crema lungo rich a, macchiato, strong fair trade,
-            aftertaste et plunger pot filter strong. Steamed, single origin,
-            filter, french press milk aftertaste americano, barista cappuccino
-            organic breve flavour. Single shot, cortado, mocha macchiato redeye,
-            variety irish and eu java.
+            Our mission is to help regular people reduce their impact on the
+            environment and to reduce the stigma attached to ‘hand me down’
+            clothes. We aim to introduce people to the circular economy so
+            together we can help: protect the environment, reduce waste, and
+            increase the efficient use of textiles.
           </p>
         </div>
         <div className="home-info__text col col--centered">test</div>
@@ -116,8 +97,10 @@ const Home = () => {
       </section>
       <section className="home-container home-popular">
         <div className="row">
-            <div className="col-12"><h2>Shop Now</h2></div>
-            {featureProducts(products)}
+          <div className="col-12">
+            <h2>Shop Now</h2>
+          </div>
+          {featureProducts(products)}
         </div>
       </section>
     </div>
@@ -127,15 +110,16 @@ const Home = () => {
 const featureProducts = (products) => {
   return products.map((product, i) => {
     return (
-        <ProductCard
-            key={i}
-            name={product.name}
-            description={product.description}
-            tags={product.tags}
-            price={product.price}
-            image={product.image}
-            location={product.location}
-        />
+      <ProductCard
+        key={i}
+        id={product._id}
+        title={product.title}
+        description={product.description}
+        category={product.category}
+        price={product.price}
+        image={product.image}
+        location={product.location}
+      />
     );
   });
 };

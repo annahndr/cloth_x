@@ -1,20 +1,13 @@
+import { Link } from "react-router-dom";
 import "./productCard.scss";
 
+import Sweater from "../../assets/images/icecreamgreysweatersite.png";
+
 const ProductCard = (props) => {
-  const { name, description, tags, price, image, location } = props;
+  const { id, title, description, category, image, location } = props;
 
   const img = {
-    backgroundImage: `url(${image})`,
-  };
-
-  const renderTags = () => {
-    return tags.map((tag, i) => {
-      return (
-        <span key={i} className="product_card__details-tags badge text-dark">
-          {tag}
-        </span>
-      );
-    });
+    backgroundImage: `url(${Sweater})`,
   };
 
   return (
@@ -32,20 +25,22 @@ const ProductCard = (props) => {
 
         <div className="row d-flex justify-content-between">
           <div className="col-8 col-lg-6 product_card__details-text">
-            <strong>{name}</strong>
+            <strong>{title}</strong>
             <p>{description}</p>
           </div>
           <div className="col-4 col-lg-6">
             <div className="col-12 d-flex justify-content-end">
-              {renderTags()}
+              <span className="product_card__details-tags badge text-dark">
+                {category}
+              </span>
             </div>
           </div>
         </div>
         <div className="row col-12 product_card__action d-flex">
-          <button
-            type="button"
+          <Link
+            to={`/product/${id}`}
             className="btn btn-primary btn-primary--teal"
-          >{`Buy Now £${price}`}</button>
+          >{`Get Now`}</Link>
         </div>
       </div>
     </div>

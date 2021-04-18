@@ -37,13 +37,23 @@ const Cart = () => {
       </div>
       <div className="place-order">
         <form className="order-form">
-          <input type="text" placeholder="Location" className="place-order_input" />
-          <select className="place-order_input" >
-            <option disabled selected hidden>Pickup/Delivery</option>
+          <input
+            type="text"
+            placeholder="Location"
+            className="place-order_input"
+          />
+          <select className="place-order_input">
+            <option disabled selected hidden>
+              Pickup/Delivery
+            </option>
             <option value="pickup">Pickup</option>
             <option value="delivery">Delivery</option>
           </select>
-          <textarea rows="5" className="place-order_input"  value="Message for seller" />
+          <textarea
+            rows="5"
+            className="place-order_input"
+            value="Message for seller"
+          />
           <input type="submit" value="Submit" className="place-order_submit" />
         </form>
       </div>

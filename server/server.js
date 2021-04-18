@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 MongoClient.connect("mongodb://localhost:27017", { useUnifiedTopology: true })
-  .then(client => {
+  .then((client) => {
     const db = client.db("clothxDB");
 
     const usersCollection = db.collection("users");
@@ -23,9 +23,8 @@ MongoClient.connect("mongodb://localhost:27017", { useUnifiedTopology: true })
     const shoppingCartsCollection = db.collection("shoppingCarts");
     const shoppingCartsRouter = createRouter(shoppingCartsCollection);
     app.use("/api/shoppingCarts", shoppingCartsRouter);
-
   })
   .catch(console.error);
-app.listen(5000, function() {
+app.listen(5000, function () {
   console.log(`clothX server running on port ${this.address().port}`);
 });
