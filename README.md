@@ -10,20 +10,23 @@ We researched the circular economy and saw the statistics about how much clothin
 
 > Circular is the new black! - _Antoinette Guhl, Deputy Mayor of Paris_
 
-### Tech stack:
-
-- Javascript
-- Node
-- React
-
-Things we had never used before were:
-
-- Authentication with bcrypt (Anna)
-- React Hooks (Emma)
-
 ### Set up instructions:
 
 1. In your terminal/command line, navigate to the `server` folder and `npm install`.
 2. After installation `npm start` to load up the server.
 3. In another terminal window, navigate to the `client` folder and `npm install`.
 4. `npm start
+
+### Tech stack:
+
+- Javascript
+- Node
+- React
+- MongoDB
+- Express
+
+Some of us used new-to-us technology such as:
+
+- Authentication with bcrypt
+- React Hooks
+- Typescript & Mongoose (attempted, but not implemented)
