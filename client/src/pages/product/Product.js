@@ -23,9 +23,9 @@ const Product = () => {
   const renderCategory = () => {
     if (product.categories) {
       return product.categories.map((data, i) => {
-        console.log(data);
+        
         return (
-          <span className="product_card__details-tags badge text-dark">
+          <span key={i} className="product_card__details-tags badge text-dark">
             {data}
           </span>
         );

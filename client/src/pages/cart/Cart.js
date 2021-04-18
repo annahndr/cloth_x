@@ -43,7 +43,7 @@ const Cart = () => {
             className="place-order_input"
           />
           <select className="place-order_input">
-            <option disabled selected hidden>
+            <option disabled value hidden>
               Pickup/Delivery
             </option>
             <option value="pickup">Pickup</option>

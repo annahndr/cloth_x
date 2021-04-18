@@ -3,13 +3,10 @@ import Logo from "../../assets/images/logo.png";
 import Login from "../../assets/images/login_cta.svg";
 import Cart from "../../assets/images/cart.svg";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const Header = () => {
-  const [loggedIn, setLoggedIn] = useState(true);
-
   const isLoggedIn = localStorage.getItem('loggedIn');
-console.log(isLoggedIn);
+
   return (
     <header className="header">
       <div>

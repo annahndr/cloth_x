@@ -116,7 +116,6 @@ const featureProducts = (products) => {
         title={product.title}
         description={product.description}
         category={product.categories}
-        price={product.price}
         image={product.image}
         location={product.location}
       />

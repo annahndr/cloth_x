@@ -1,7 +1,7 @@
 import "./checkoutCard.scss";
 
 const CheckoutCard = (props) => {
-  const { name, description, tags, price, image } = props;
+  const { name, description, tags, image } = props;
 
   const img = {
     backgroundImage: `url(${image})`,
