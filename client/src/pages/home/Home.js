@@ -9,6 +9,7 @@ import ProductCard from "../../components/productCard/ProductCard";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, productSelector } from "../../store/product-reducer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -70,14 +71,13 @@ const Home = () => {
             increase the efficient use of textiles.
           </p>
         </div>
-        <div className="home-info__text col col--centered">test</div>
       </section>
       <section className="home-container home-features home-features--numbered">
         <p className="home-features__heading">How It Works</p>
         <ul className="home-features__items">
           <li>
             <span className="home-features__container home-features__items-large">
-              <p>Create an account</p>
+              <Link to="/login"><p>Create an account</p></Link>
               <span className="home-features__items-small">1</span>
             </span>
           </li>
@@ -115,7 +115,7 @@ const featureProducts = (products) => {
         id={product._id}
         title={product.title}
         description={product.description}
-        category={product.category}
+        category={product.categories}
         price={product.price}
         image={product.image}
         location={product.location}
