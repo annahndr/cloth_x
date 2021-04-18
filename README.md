@@ -15,7 +15,7 @@ We researched the circular economy and saw the statistics about how much clothin
 1. In your terminal/command line, navigate to the `server` folder and `npm install`.
 2. After installation `npm start` to load up the server.
 3. In another terminal window, navigate to the `client` folder and `npm install`.
-4. `npm start
+4. `npm start`
 
 ### Tech stack:
 
