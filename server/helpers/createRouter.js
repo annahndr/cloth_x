@@ -133,18 +133,18 @@ const createRouter = function (collection) {
 
   // Update many products
   router.put("/", (req, res) => {
-    const newData = req.body.products;
+    const products = req.body.products;
 
-    newData.forEach((id) => {
+    products.forEach((id) => {
       id = ObjectId(id);
     });
-    console.log("NewData:", newData);
+    console.log("products:", products);
 
     // assuming new data is an array of product ids
     collection
       .updateMany(
         {
-          _id: {$in: newData}
+          _id: {$in: products}
         },
         {
           $set: { status: "reserved" }
