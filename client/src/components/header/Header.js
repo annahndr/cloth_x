@@ -8,6 +8,8 @@ import { useState } from "react";
 const Header = () => {
   const [loggedIn, setLoggedIn] = useState(true);
 
+  const isLoggedIn = localStorage.getItem('loggedIn');
+console.log(isLoggedIn);
   return (
     <header className="header">
       <div>
@@ -16,7 +18,7 @@ const Header = () => {
         </Link>
       </div>
       <div className="header__actions">
-        {loggedIn && (
+        {isLoggedIn === "true" && (
           <Link to="/create-post" className="btn btn-light">
             Create Post
           </Link>
@@ -24,9 +26,11 @@ const Header = () => {
         <Link to="/cart">
           <img src={Cart} alt="cart" />
         </Link>
+         {isLoggedIn === null && (
         <Link to="/login">
           <img src={Login} alt="login" />
         </Link>
+         )}
       </div>
     </header>
   );
