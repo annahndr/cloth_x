@@ -4,7 +4,7 @@ import "./productCard.scss";
 import Sweater from "../../assets/images/icecreamgreysweatersite.png";
 
 const ProductCard = (props) => {
-  const { id, title, description, category, image, location } = props;
+  const { id, title, description, location } = props;
 
   const img = {
     backgroundImage: `url(${Sweater})`,
@@ -27,13 +27,6 @@ const ProductCard = (props) => {
           <div className="col-8 col-lg-6 product_card__details-text">
             <strong>{title}</strong>
             <p>{description}</p>
-          </div>
-          <div className="col-4 col-lg-6">
-            <div className="col-12 d-flex justify-content-end">
-              <span className="product_card__details-tags badge text-dark">
-                {category}
-              </span>
-            </div>
           </div>
         </div>
         <div className="row col-12 product_card__action d-flex">

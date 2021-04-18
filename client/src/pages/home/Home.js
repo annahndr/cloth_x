@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-
+  
   return (
     <div>
       <section className="home-banner">
@@ -70,7 +70,6 @@ const Home = () => {
             increase the efficient use of textiles.
           </p>
         </div>
-        <div className="home-info__text col col--centered">test</div>
       </section>
       <section className="home-container home-features home-features--numbered">
         <p className="home-features__heading">How It Works</p>
@@ -115,7 +114,7 @@ const featureProducts = (products) => {
         id={product._id}
         title={product.title}
         description={product.description}
-        category={product.category}
+        category={product.categories}
         price={product.price}
         image={product.image}
         location={product.location}
