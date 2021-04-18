@@ -13,7 +13,6 @@ const Product = () => {
   const { loading } = useSelector(loadingSelector);
 
   useEffect(() => {
-    console.log("ID ", id);
     dispatch(fetchSingleProduct(id));
   }, [dispatch, id]);
 
