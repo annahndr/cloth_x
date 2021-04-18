@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-  
+
   return (
     <div>
       <section className="home-banner">

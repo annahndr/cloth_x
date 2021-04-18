@@ -5,7 +5,7 @@ export const productReducer = createSlice({
   name: "products",
   initialState: {
     products: [],
-    product: {}
+    product: {},
   },
   reducers: {
     getAllProducts: (state, action) => {
@@ -15,13 +15,17 @@ export const productReducer = createSlice({
       state.product = action.payload;
     },
     isLoading: (state, action) => {
-        state.loading = action.payload;
+      state.loading = action.payload;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { getAllProducts, getSingleProduct, isLoading } = productReducer.actions;
+export const {
+  getAllProducts,
+  getSingleProduct,
+  isLoading,
+} = productReducer.actions;
 
 export default productReducer.reducer;
 export const productSelector = (state) => state.products;
@@ -43,7 +47,7 @@ export function fetchProducts() {
         dispatch(isLoading(false));
       });
   };
-};
+}
 
 export function fetchSingleProduct(id) {
   return (dispatch) => {
@@ -51,7 +55,7 @@ export function fetchSingleProduct(id) {
     axios
       .get(`http://localhost:5000/api/products/${id}`)
       .then(function (response) {
-        console.log(response.data)  
+        console.log(response.data);
         dispatch(getSingleProduct(response.data));
         dispatch(isLoading(false));
       })
@@ -61,4 +65,4 @@ export function fetchSingleProduct(id) {
         dispatch(isLoading(false));
       });
   };
-};
+}

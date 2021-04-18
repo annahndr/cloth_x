@@ -5,6 +5,6 @@ export default configureStore({
   reducer: {
     products: productReducer,
     product: productReducer,
-    loading: productReducer
+    loading: productReducer,
   },
 });
