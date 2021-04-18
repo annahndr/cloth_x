@@ -1,5 +1,4 @@
 import "./home.scss";
-import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faRecycle,
@@ -7,56 +6,17 @@ import {
   faShoppingCart,
 } from "@fortawesome/free-solid-svg-icons";
 import ProductCard from "../../components/productCard/ProductCard";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts, productSelector } from "../../store/product-reducer";
 
 const Home = () => {
-  // const products = [
-  //   {
-  //     id: 1,
-  //     name: "Chunky Sweater",
-  //     description: "This is a sweater",
-  //     size: "M",
-  //     category: "Used",
-  //     image: Sweater,
-  //     location: "Glasgow",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Chunky Sweater",
-  //     description: "This is a sweater",
-  //     size: "M",
-  //     category: "Used",
-  //     image: Sweater,
-  //     location: "Glasgow",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Chunky Sweater",
-  //     description: "This is a sweater",
-  //     size: "M",
-  //     category: "Used",
-  //     image: Sweater,
-  //     location: "Glasgow",
-  //   },
-  // ];
-
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const { products } = useSelector(productSelector);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/products')
-    .then(function (response) {
-      // handle success
-      console.log("test", response);
-      setProducts(response.data);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
-  }, []);
-
-
-
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
     <div>
@@ -103,10 +63,11 @@ const Home = () => {
         <div className="home-info__text col col--centered">
           <h2>Our Mission</h2>
           <p>
-          Our mission is to help regular people reduce their impact on the environment and to reduce the
-          stigma attached to ‘hand me down’ clothes. We aim to introduce people to the circular economy so
-          together we can help: protect the environment, reduce waste, and increase the efficient use of
-          textiles.
+            Our mission is to help regular people reduce their impact on the
+            environment and to reduce the stigma attached to ‘hand me down’
+            clothes. We aim to introduce people to the circular economy so
+            together we can help: protect the environment, reduce waste, and
+            increase the efficient use of textiles.
           </p>
         </div>
         <div className="home-info__text col col--centered">test</div>

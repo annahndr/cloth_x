@@ -3,7 +3,7 @@ import "./product.scss";
 const Product = (props) => {
   const { name, description, category, image, location } = props;
 
-    // We will set useEffect here to take the ID from the URL and populate the data
+  // We will set useEffect here to take the ID from the URL and populate the data
 
   const img = {
     backgroundImage: `url(${image})`,
@@ -38,7 +38,7 @@ const Product = (props) => {
           </button>
         </div>
         <div className="col-12 col-lg-6">
-            <div className="product_card__image" style={img}></div>
+          <div className="product_card__image" style={img}></div>
         </div>
       </div>
     </div>

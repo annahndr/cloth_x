@@ -8,7 +8,7 @@ const User = mongoose.model("User", {
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   created: { type: Date, required: true },
-  verified: { type: Boolean, required: true }
+  verified: { type: Boolean, required: true },
 });
 
 const lizzie = new User({
@@ -17,7 +17,7 @@ const lizzie = new User({
   email: "lb@email.com",
   password: "qwerty",
   created: Date.now(),
-  verified: True
+  verified: True,
 });
 
 lizzie.save().then(console.log("lizzie has been saved"));

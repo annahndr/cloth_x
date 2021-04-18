@@ -2,44 +2,45 @@
 @import "../../styles/base/buttons.scss";
 
 .cart {
-    display: flex;
+  display: flex;
 }
 
-.order-summary, .place-order {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    flex-direction: column;
-    padding: 5rem;
+.order-summary,
+.place-order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  padding: 5rem;
 }
 
 .order-summary {
-    background-color: $greylight;
+  background-color: $greylight;
 }
 
 .order-form {
-    width: 90%;
+  width: 90%;
 }
 
 .place-order_input {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    width: 90%;
-    padding: 1rem;
-    border-radius: 8px;
-    color: $grey;
-    border: 2px solid $black;
-    font-family: Arial;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  width: 90%;
+  padding: 1rem;
+  border-radius: 8px;
+  color: $grey;
+  border: 2px solid $black;
+  font-family: Arial;
 }
 
 .place-order_submit {
-    float: right;
-    background-color: $teal;
-    color: $white;
-    padding: .5rem 1rem;
-    border-radius: 8px;
-    border: none;
-    margin-right: 3rem;
+  float: right;
+  background-color: $teal;
+  color: $white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  margin-right: 3rem;
 }
