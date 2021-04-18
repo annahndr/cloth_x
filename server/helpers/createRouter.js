@@ -129,7 +129,35 @@ const createRouter = function(collection) {
     });
   });
 
-  
+  // Update many products
+  router.put('/', (req, res) =>{
+    const newData = req.body.products;
+
+    newData.forEach(id => {
+      id = ObjectId(id);
+      console.log(typeof id);
+    });
+    console.log('NewData:', newData)
+    
+  // assuming new data is an array of product ids
+    collection.updateMany(
+      {
+        _id:
+        {
+          $in:
+            newData
+        }
+      },
+      {
+        $inc: { status: 'Reserved' }
+      }).then(result => {
+        res.json(result);
+      })
+      .catch((err) => {
+        res.status(500);
+        res.json({ status: 500, error: err });
+      });
+  })  
 
   return router;
 };
