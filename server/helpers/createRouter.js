@@ -137,7 +137,6 @@ const createRouter = function (collection) {
 
     newData.forEach((id) => {
       id = ObjectId(id);
-      console.log(typeof id);
     });
     console.log("NewData:", newData);
 
@@ -145,12 +144,10 @@ const createRouter = function (collection) {
     collection
       .updateMany(
         {
-          _id: {
-            $in: newData,
-          },
+          _id: {$in: newData}
         },
         {
-          $inc: { status: "Reserved" },
+          $set: { status: "reserved" }
         }
       )
       .then((result) => {
