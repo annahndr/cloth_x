@@ -27,3 +27,9 @@
   background-position: center center;
   background-size: contain;
 }
+
+.product_card__details-text {
+  strong {
+    text-transform: uppercase;
+  }
+}

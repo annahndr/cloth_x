@@ -120,11 +120,13 @@
 }
 
 .home-info {
-  display: none;
-
   @media (min-width: 900px) {
     display: flex;
   }
+}
+
+.home-info__text {
+  text-align: center;
 }
 
 .home-container {

@@ -1,0 +1,20 @@
+@import "../../styles/base/variables.scss";
+
+.checkout-card {
+  display: flex;
+  padding: 1rem;
+  width: 80%;
+}
+
+.checkout_card__details-tags {
+  border: solid 2px $teal;
+  margin: 0.5rem;
+}
+
+.checkout_card__image {
+  width: 50%;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}

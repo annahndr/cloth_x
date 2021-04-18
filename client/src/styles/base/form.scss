@@ -10,3 +10,9 @@
     width: 400px;
   }
 }
+
+input.form-control,
+select.form-control,
+textarea.form-control {
+  border: solid 2px $black;
+}

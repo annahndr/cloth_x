@@ -2,15 +2,15 @@ const express = require("express");
 const ObjectId = require("mongodb").ObjectID;
 const bcrypt = require("bcrypt");
 
-const createRouter = function(collection) {
+const createRouter = function (collection) {
   const router = express.Router();
 
   router.get("/", (req, res) => {
     collection
       .find()
       .toArray()
-      .then(docs => res.json(docs))
-      .catch(errorResponse => {
+      .then((docs) => res.json(docs))
+      .catch((errorResponse) => {
         error.log(errorResponse);
         res.status(500);
         res.json({ status: 500, error: errorResponse });
@@ -22,18 +22,18 @@ const createRouter = function(collection) {
     const newData = req.body;
     
     collection
-    .insertOne(newData)
-    .then(result => {
-      console.log(result);
-      res.json(result.ops[0]);
-      res.status(500);
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500);
-      res.json({ status: 500, error: err });
-    });
-  })
+      .insertOne(newData)
+      .then((result) => {
+        console.log(result);
+        res.json(result.ops[0]);
+        res.status(500);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500);
+        res.json({ status: 500, error: err });
+      });
+  });
 
 
   // POST a user
@@ -42,17 +42,17 @@ const createRouter = function(collection) {
     const saltRounds = 10;
     const foundUser = await collection.findOne({ email: newUser.email });
     if (!foundUser) {
-      bcrypt.hash(newUser.password, saltRounds, function(err, hash) {
+      bcrypt.hash(newUser.password, saltRounds, function (err, hash) {
         newUser.password = hash;
         newUser.created = Date.now();
         collection
           .insertOne(newUser)
-          .then(result => {
+          .then((result) => {
             console.log(result);
             res.json(result.ops[0]);
             res.status(500);
           })
-          .catch(err => {
+          .catch((err) => {
             console.error(err);
             res.status(500);
             res.json({ status: 500, error: err });
@@ -104,8 +104,8 @@ const createRouter = function(collection) {
     const id = ObjectId(req.params.id);
     collection
       .findOne({ _id: id })
-      .then(docs => res.json(docs))
-      .catch(error => {
+      .then((docs) => res.json(docs))
+      .catch((error) => {
         console.error(error);
         res.status(500);
         res.json({ status: 500, error: error });
