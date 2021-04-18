@@ -17,9 +17,10 @@ const createRouter = function(collection) {
       });
   });
 
-  // PRODUCTS/SHOPPING CART
+  // Post a product / shopping cart
   router.post("/", (req, res) => {
     const newData = req.body;
+    
     collection
     .insertOne(newData)
     .then(result => {
@@ -33,6 +34,7 @@ const createRouter = function(collection) {
       res.json({ status: 500, error: err });
     });
   })
+
 
   // POST a user
   router.post("/register", async (req, res) => {
@@ -97,7 +99,7 @@ const createRouter = function(collection) {
       });
   });
 
-  // USERS, PRODUCTS
+  // GET users/products
   router.get("/:id", (req, res) => {
     const id = ObjectId(req.params.id);
     collection
@@ -109,6 +111,25 @@ const createRouter = function(collection) {
         res.json({ status: 500, error: error });
       });
   });
+
+  // UPDATE user/product/shopping cart
+  router.put('/:id', (req, res) => {
+    const id = ObjectId(req.params.id);
+    const updatedData = req.body;
+    delete updatedData._id;
+
+    collection
+    .updateOne({ _id: id }, { $set: updatedData })
+    .then(result => {
+      res.json(result);
+    })
+    .catch((err) => {
+      res.status(500);
+      res.json({ status: 500, error: err });
+    });
+  });
+
+  
 
   return router;
 };
